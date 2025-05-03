@@ -4,23 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Languages } from "lucide-react";
 
 const LanguageSwitcher = () => {
-  const { language, setLanguage } = useLanguage();
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'ar' : 'en');
-  };
-
-  return (
-    <Button 
-      variant="ghost" 
-      size="icon" 
-      onClick={toggleLanguage} 
-      className="rounded-full"
-      aria-label={language === 'en' ? 'Switch to Arabic' : 'Switch to English'}
-    >
-      <Languages className="h-5 w-5" />
-    </Button>
-  );
+  // This component will be empty since we're using Arabic only
+  return null;
 };
 
 export default LanguageSwitcher;

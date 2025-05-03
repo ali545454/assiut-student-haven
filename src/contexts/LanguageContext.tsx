@@ -1,7 +1,7 @@
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'en' | 'ar';
+type Language = 'ar';
 
 interface LanguageContextType {
   language: Language;
@@ -12,64 +12,14 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const translations = {
-  en: {
-    // Navbar
-    'home': 'Home',
-    'listings': 'Listings',
-    'about': 'About',
-    'login': 'Login',
-    'signup': 'Sign Up',
-    
-    // Hero
-    'hero.title': 'Find Your Perfect Student Home in Assiut',
-    'hero.description': 'Connect with trusted landlords offering quality housing options near Assiut University. Read reviews from other students and book your accommodation with confidence.',
-    'hero.browse': 'Browse Listings',
-    'hero.howItWorks': 'How It Works',
-    
-    // Featured Properties
-    'featured.title': 'Featured Properties',
-    'featured.description': 'Browse our top-rated student housing options near Assiut University',
-    'featured.viewAll': 'View All Properties',
-    
-    // How It Works
-    'howItWorks.title': 'How It Works',
-    'howItWorks.description': 'Finding student housing in Assiut has never been easier',
-    'howItWorks.step1.title': 'Find Housing',
-    'howItWorks.step1.description': 'Browse our listings to find the perfect student accommodation near Assiut University.',
-    'howItWorks.step2.title': 'Read Reviews',
-    'howItWorks.step2.description': 'Check ratings and reviews from other students who have stayed at the property.',
-    'howItWorks.step3.title': 'Contact Landlords',
-    'howItWorks.step3.description': 'Message landlords directly through our platform to ask questions or arrange viewings.',
-    'howItWorks.step4.title': 'Book Securely',
-    'howItWorks.step4.description': 'Reserve your accommodation with our secure booking system and pay securely.',
-    
-    // Footer
-    'footer.description': 'Connecting students with quality housing options in Assiut. Our platform helps students find accommodation and build trusted relationships with landlords.',
-    'footer.quickLinks': 'Quick Links',
-    'footer.forStudents': 'For Students',
-    'footer.contactUs': 'Contact Us',
-    'footer.rights': '© {year} Assiut Student Haven. All rights reserved.',
-    'footer.terms': 'Terms of Service',
-    'footer.privacy': 'Privacy Policy',
-    
-    // Listings
-    'listings.title': 'Student Housing in Assiut',
-    'listings.description': 'Find and compare the best accommodation options',
-    'listings.search': 'Search',
-    'listings.searchPlaceholder': 'Search by location or property name',
-    'listings.priceRange': 'Price Range (EGP/month)',
-    'listings.bedrooms': 'Bedrooms',
-    'listings.any': 'Any',
-    'listings.available': 'Available properties only',
-    'listings.found': '{count} {count, plural, one {property} other {properties}} found',
-    'listings.sortBy': 'Sort by: Price',
-    'listings.noResults': 'No properties found matching your criteria.',
-    'listings.clearFilters': 'Clear Filters',
-  },
   ar: {
     // Navbar
     'home': 'الرئيسية',
-    'listings': 'القوائم',
+    'listings': 'الشقق المتاحة',
+    'addHousing': 'أضف سكن',
+    'forum': 'المنتدى الطلابي',
+    'profile': 'الملف الشخصي',
+    'contact': 'تواصل معنا',
     'about': 'عن الموقع',
     'login': 'تسجيل الدخول',
     'signup': 'إنشاء حساب',
@@ -77,13 +27,13 @@ export const translations = {
     // Hero
     'hero.title': 'ابحث عن سكنك الطلابي المثالي في أسيوط',
     'hero.description': 'تواصل مع المالكين الموثوق بهم الذين يقدمون خيارات سكن عالية الجودة بالقرب من جامعة أسيوط. اقرأ تقييمات من طلاب آخرين واحجز إقامتك بثقة.',
-    'hero.browse': 'تصفح القوائم',
+    'hero.browse': 'تصفح الشقق',
     'hero.howItWorks': 'كيف يعمل',
     
     // Featured Properties
-    'featured.title': 'عقارات مميزة',
+    'featured.title': 'شقق مميزة',
     'featured.description': 'تصفح خيارات الإسكان الطلابي الأعلى تقييمًا بالقرب من جامعة أسيوط',
-    'featured.viewAll': 'عرض جميع العقارات',
+    'featured.viewAll': 'عرض جميع الشقق',
     
     // How It Works
     'howItWorks.title': 'كيف يعمل',
@@ -102,7 +52,7 @@ export const translations = {
     'footer.quickLinks': 'روابط سريعة',
     'footer.forStudents': 'للطلاب',
     'footer.contactUs': 'اتصل بنا',
-    'footer.rights': '© {year} ملاذ طلاب أسيوط. جميع الحقوق محفوظة.',
+    'footer.rights': '© {year} سكني - أسيوط. جميع الحقوق محفوظة.',
     'footer.terms': 'شروط الخدمة',
     'footer.privacy': 'سياسة الخصوصية',
     
@@ -123,11 +73,11 @@ export const translations = {
 };
 
 export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language] = useState<Language>('ar');
   
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value = translations[language];
+    let value: any = translations[language];
     
     for (const k of keys) {
       if (value && value[k]) {
@@ -141,8 +91,8 @@ export const LanguageProvider: React.FC<{children: ReactNode}> = ({ children }) 
   };
   
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      <div dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <LanguageContext.Provider value={{ language, setLanguage: () => {}, t }}>
+      <div dir="rtl">
         {children}
       </div>
     </LanguageContext.Provider>
