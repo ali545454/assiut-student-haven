@@ -3,9 +3,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, User, Building, LogIn } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,32 +33,34 @@ const Navbar = () => {
               to="/" 
               className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
             >
-              Home
+              {t('home')}
             </Link>
             <Link 
               to="/listings" 
               className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
             >
-              Listings
+              {t('listings')}
             </Link>
             <Link 
               to="/about" 
               className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
             >
-              About
+              {t('about')}
             </Link>
+            <LanguageSwitcher />
             <Button variant="ghost" className="flex items-center gap-2">
               <LogIn size={18} />
-              <span>Login</span>
+              <span>{t('login')}</span>
             </Button>
             <Button className="bg-haven-blue hover:bg-haven-blue/90 text-white flex items-center gap-2">
               <User size={18} />
-              <span>Sign Up</span>
+              <span>{t('signup')}</span>
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex md:hidden items-center">
+          <div className="flex md:hidden items-center gap-2">
+            <LanguageSwitcher />
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-haven-blue hover:bg-gray-50 focus:outline-none"
@@ -80,30 +85,30 @@ const Navbar = () => {
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
             onClick={() => setIsMenuOpen(false)}
           >
-            Home
+            {t('home')}
           </Link>
           <Link
             to="/listings"
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
             onClick={() => setIsMenuOpen(false)}
           >
-            Listings
+            {t('listings')}
           </Link>
           <Link
             to="/about"
             className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
             onClick={() => setIsMenuOpen(false)}
           >
-            About
+            {t('about')}
           </Link>
           <div className="px-4 py-2 flex flex-col space-y-2">
             <Button variant="ghost" className="flex justify-center items-center gap-2 w-full">
               <LogIn size={18} />
-              <span>Login</span>
+              <span>{t('login')}</span>
             </Button>
             <Button className="bg-haven-blue hover:bg-haven-blue/90 text-white flex justify-center items-center gap-2 w-full">
               <User size={18} />
-              <span>Sign Up</span>
+              <span>{t('signup')}</span>
             </Button>
           </div>
         </div>

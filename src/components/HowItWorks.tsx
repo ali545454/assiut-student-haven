@@ -1,37 +1,40 @@
 
 import { Search, Star, Building, Calendar } from "lucide-react";
-
-const steps = [
-  {
-    icon: Search,
-    title: "Find Housing",
-    description: "Browse our listings to find the perfect student accommodation near Assiut University."
-  },
-  {
-    icon: Star,
-    title: "Read Reviews",
-    description: "Check ratings and reviews from other students who have stayed at the property."
-  },
-  {
-    icon: Building,
-    title: "Contact Landlords",
-    description: "Message landlords directly through our platform to ask questions or arrange viewings."
-  },
-  {
-    icon: Calendar,
-    title: "Book Securely",
-    description: "Reserve your accommodation with our secure booking system and pay securely."
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorks = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      icon: Search,
+      title: t('howItWorks.step1.title'),
+      description: t('howItWorks.step1.description')
+    },
+    {
+      icon: Star,
+      title: t('howItWorks.step2.title'),
+      description: t('howItWorks.step2.description')
+    },
+    {
+      icon: Building,
+      title: t('howItWorks.step3.title'),
+      description: t('howItWorks.step3.description')
+    },
+    {
+      icon: Calendar,
+      title: t('howItWorks.step4.title'),
+      description: t('howItWorks.step4.description')
+    }
+  ];
+
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">How It Works</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t('howItWorks.title')}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-600">
-            Finding student housing in Assiut has never been easier
+            {t('howItWorks.description')}
           </p>
         </div>
         

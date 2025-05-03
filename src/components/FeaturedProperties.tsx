@@ -1,18 +1,20 @@
 
 import { properties } from "@/data/properties";
 import PropertyCard from "@/components/PropertyCard";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FeaturedProperties = () => {
   // Get featured properties
   const featuredProperties = properties.filter(property => property.featured);
+  const { t } = useLanguage();
   
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-900">Featured Properties</h2>
+          <h2 className="text-3xl font-bold text-gray-900">{t('featured.title')}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-600">
-            Browse our top-rated student housing options near Assiut University
+            {t('featured.description')}
           </p>
         </div>
         
@@ -27,7 +29,7 @@ const FeaturedProperties = () => {
             href="/listings" 
             className="inline-block px-6 py-3 border border-haven-blue text-haven-blue font-medium rounded-md hover:bg-haven-blue hover:text-white transition-colors"
           >
-            View All Properties
+            {t('featured.viewAll')}
           </a>
         </div>
       </div>

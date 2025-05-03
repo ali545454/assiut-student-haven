@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="relative bg-haven-blue">
       <div className="absolute inset-0">
@@ -14,19 +17,19 @@ const Hero = () => {
       </div>
       <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-          Find Your Perfect Student Home in Assiut
+          {t('hero.title')}
         </h1>
         <p className="mt-6 text-xl text-white max-w-3xl">
-          Connect with trusted landlords offering quality housing options near Assiut University. Read reviews from other students and book your accommodation with confidence.
+          {t('hero.description')}
         </p>
         <div className="mt-10 flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4">
           <Link to="/listings">
             <Button className="bg-white text-haven-blue hover:bg-gray-100 font-semibold text-lg px-8 py-6">
-              Browse Listings
+              {t('hero.browse')}
             </Button>
           </Link>
           <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 font-semibold text-lg px-8 py-6">
-            How It Works
+            {t('hero.howItWorks')}
           </Button>
         </div>
       </div>
