@@ -23,6 +23,7 @@ export const translations = {
     'about': 'عن الموقع',
     'login': 'تسجيل الدخول',
     'signup': 'إنشاء حساب',
+    'search': 'بحث',
     
     // Hero
     'hero.title': 'ابحث عن سكنك الطلابي المثالي في أسيوط',

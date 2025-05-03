@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, Building, Home, Plus, MessageSquare, Phone } from "lucide-react";
+import { Menu, X, User, Building, Home, Plus, MessageSquare, Phone, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
                 className="border border-gray-300 rounded-lg py-2 pr-3 pl-10 focus:outline-none focus:ring-2 focus:ring-haven-blue"
               />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Phone className="h-5 w-5 text-haven-blue" />
+                <Search className="h-5 w-5 text-haven-blue" />
               </div>
             </div>
           </div>
