@@ -70,6 +70,16 @@ export const translations = {
     'listings.sortBy': 'الترتيب حسب: السعر',
     'listings.noResults': 'لم يتم العثور على عقارات تطابق المعايير الخاصة بك.',
     'listings.clearFilters': 'مسح الفلاتر',
+    
+    // Login Page
+    'login.welcome': 'أهلاً بك مجدداً في منصة سكني',
+    'login.email': 'البريد الإلكتروني',
+    'login.emailPlaceholder': 'أدخل بريدك الإلكتروني',
+    'login.password': 'كلمة المرور',
+    'login.passwordPlaceholder': 'أدخل كلمة المرور',
+    'login.loading': 'جاري تسجيل الدخول...',
+    'login.noAccount': 'ليس لديك حساب؟',
+    'login.forgotPassword': 'نسيت كلمة المرور؟',
   }
 };
 

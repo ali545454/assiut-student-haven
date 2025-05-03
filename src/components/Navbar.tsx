@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="بحث..."
+                placeholder={t('search') + "..."}
                 className="border border-gray-300 rounded-lg py-2 pr-3 pl-10 focus:outline-none focus:ring-2 focus:ring-haven-blue"
               />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -38,6 +38,16 @@ const Navbar = () => {
               <span className="text-2xl font-bold text-haven-blue font-arabic">
                 سكني
               </span>
+            </Link>
+          </div>
+
+          {/* Login button */}
+          <div className="flex items-center">
+            <Link to="/login">
+              <Button variant="ghost" className="flex items-center gap-2 mr-2 hover:bg-gray-100">
+                <User className="h-5 w-5" />
+                <span>{t('login')}</span>
+              </Button>
             </Link>
           </div>
 
@@ -155,6 +165,14 @@ const Navbar = () => {
           >
             <Phone className="ml-2 h-5 w-5" />
             {t('contact')}
+          </Link>
+          <Link
+            to="/login"
+            className="flex items-center px-4 py-2 text-base font-medium text-gray-700 hover:text-haven-blue hover:bg-gray-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <User className="ml-2 h-5 w-5" />
+            {t('login')}
           </Link>
         </div>
       )}
